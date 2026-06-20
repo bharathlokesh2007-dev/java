@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Function Button Demo</title> 
+<script> 
+// Factorial 
+function factorial(n) { 
+let fact = 1; 
+for (let i = 1; i <= n; i++) fact *= i; 
+return fact; 
+} 
+// Fibonacci 
+function fibonacci(n) { 
+let a = 0, b = 1, arr = [0, 1]; 
+if (n == 1) return [0]; 
+for (let i = 2; i < n; i++) { 
+let next = a + b; 
+arr.push(next); 
+a = b; 
+b = next; 
+} 
+return arr; 
+} 
+// Prime numbers 
+function primeNumbers(n) { 
+let primes = []; 
+for (let i = 2; i <= n; i++) { 
+let flag = true; 
+for (let j = 2; j <= Math.sqrt(i); j++) { 
+if (i % j == 0) { flag = false; break; } 
+Page 59 
+Full Stack Development-I Lab by K Suresh, M. Tech.,(Ph.D) 
+} 
+if (flag) primes.push(i); 
+} 
+return primes; 
+} 
+// Palindrome 
+function isPalindrome(n) { 
+let s = n.toString(); 
+return s === s.split("").reverse().join(""); 
+} 
+// Button Handlers 
+function showFactorial() { 
+let n = parseInt(document.getElementById("num").value); 
+document.getElementById("result").innerHTML = "Factorial = " + factorial(n); 
+} 
+function showFibonacci() { 
+let n = parseInt(document.getElementById("num").value); 
+document.getElementById("result").innerHTML = "Fibonacci = " + fibonacci(n); 
+} 
+function showPrime() { 
+let n = parseInt(document.getElementById("num").value); 
+document.getElementById("result").innerHTML = "Prime Numbers = " + 
+primeNumbers(n); 
+} 
+function showPalindrome() { 
+let n = parseInt(document.getElementById("num").value); 
+let res = isPalindrome(n) ? "Palindrome" : "Not Palindrome"; 
+document.getElementById("result").innerHTML = "Result: " + res; 
+} 
+</script> 
+</head> 
+<body> 
+<h2>Function Operations</h2> 
+Enter Number: <input type="text" id="num"><br><br> 
+<button onclick="showFactorial()">Factorial</button> 
+<button onclick="showFibonacci()">Fibonacci</button> 
+<button onclick="showPrime()">Prime</button> 
+<button onclick="showPalindrome()">Palindrome</button> 
+<h3 id="result"></h3> 
+Page 60 
+Full Stack Development-I Lab by K Suresh, M. Tech.,(Ph.D) 
+</body> 
+</html>
